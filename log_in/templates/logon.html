@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+</head>
+<body>
+    <div class="container">
+        {% if messages %}
+            <div class="warning">
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+        <div class="container-head">
+            <h1>Sign Up</h1>
+        </div>
+        <div class="container-form">
+            <form action="/signup" method="post">
+                {% csrf_token %}
+                <div class="form-input">
+                    <label>Username</label>
+                    <input type="text" name="username" />
+                </div>
+                <div class="form-input">
+                    <label>Email</label>
+                    <input type="email" name="email" />
+                </div>
+                <div class="form-input">
+                    <label>Password</label>
+                    <input type="password" name="password" />
+                </div>
+                <div class="form-submit">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+            <a href="/">Log In</a>
+        </div>
+    </div>
+</body>
+</html>
